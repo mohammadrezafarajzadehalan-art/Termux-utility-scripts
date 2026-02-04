@@ -1,0 +1,123 @@
+# parallel_passport.py
+import quantum
+import imagination
+
+class MultiversePassport:
+    """گذرنامه برای سفر به جهان‌های موازی"""
+    
+    def __init__(self, holder_name):
+        self.holder = holder_name
+        self.issued_date = "همیشه"
+        self.expiry_date = "هرگز"
+        self.universes_visited = []
+        self.special_permissions = [
+            "ورود به جهان‌های خیالی",
+            "صحبت با موجودات افسانه‌ای",
+            "تغییر قوانین فیزیک (محدود)",
+            "برگشت به هر زمانی",
+            "دیدن آینده‌های احتمالی"
+        ]
+        
+    def apply_for_visa(self, universe_type):
+        """درخواست ویزا برای یک جهان"""
+        print(f"✈️ درخواست ویزا برای {universe_type}...")
+        
+        universe_types = {
+            "جهان رنگ‌ها": {"requirements": ["چشمانی برای دیدن زیبایی"], "processing_time": "لحظه‌ای"},
+            "جهان سکوت": {"requirements": ["قلبی آرام"], "processing_time": "یک نفس عمیق"},
+            "جهان موسیقی": {"requirements": ["گوشی برای شنیدن ریتم قلب زمین"], "processing_time": "یک آهنگ"},
+            "جهان قصه‌ها": {"requirements": ["زبانی برای گفتن و گوشی برای شنیدن"], "processing_time": "یک داستان"},
+            "جهان سامین": {"requirements": ["یک لبخند", "کمی کنجکاوی"], "processing_time": "همین الان"}
+        }
+        
+        if universe_type in universe_types:
+            reqs = universe_types[universe_type]["requirements"]
+            time = universe_types[universe_type]["processing_time"]
+            
+            print(f"📋 شرایط: {', '.join(reqs)}")
+            print(f"⏳ زمان پردازش: {time}")
+            
+            # بررسی شرایط
+            if self.check_requirements(reqs):
+                print(f"✅ ویزای {universe_type} صادر شد!")
+                self.universes_visited.append({
+                    "name": universe_type,
+                    "visit_date": "امروز",
+                    "purpose": "کشف و دوستی"
+                })
+                return True
+            else:
+                print("❌ شرایط لازم را نداری... هنوز!")
+                return False
+        else:
+            print(f"🌌 جهان {universe_type} هنوز کشف نشده!")
+            return False
+    
+    def check_requirements(self, requirements):
+        """بررسی شرایط مسافر"""
+        # در جهان موازی، مهم‌ترین شرط نیت است
+        print("🔍 بررسی شرایط...")
+        
+        for req in requirements:
+            if "چشم" in req:
+                print(f"   👁️  چشمانت را می‌بندم و باز می‌کنم... دیده شد!")
+            elif "قلب" in req:
+                print(f"   💓 ضربان قلب شنیده شد... تپنده است!")
+            elif "لبخند" in req:
+                print(f"   😊 لبخندت از طریق صفحه‌نمایش دیده شد!")
+            elif "کنجکاوی" in req:
+                print(f"   🤔 سؤال پرسیدی... کنجکاوی تایید شد!")
+        
+        return True  # در جهان ما، همه شایسته سفرند
+    
+    def generate_stamp(self, universe_name):
+        """تمبر ورود به یک جهان"""
+        stamps = {
+            "جهان رنگ‌ها": "🌈",
+            "جهان سکوت": "🤫",
+            "جهان موسیقی": "🎵",
+            "جهان قصه‌ها": "📖",
+            "جهان سامین": "🌸"
+        }
+        
+        stamp = stamps.get(universe_name, "✨")
+        
+        passport_page = f"""
+        ╔══════════════════════════════╗
+        ║         گذرنامه کیهانی       ║
+        ║       دارنده: {self.holder:^10}   ║
+        ║                              ║
+        ║   جهان: {universe_name:<15}   ║
+        ║   تاریخ: همیشه               ║
+        ║   هدف: کشف زیبایی            ║
+        ║                              ║
+        ║         {stamp:^10}           ║
+        ╚══════════════════════════════╝
+        """
+        
+        return passport_page
+
+# ایجاد گذرنامه برای سامین
+print("🛂 اداره گذرنامه جهان‌های موازی")
+print("=" * 40)
+
+samin_passport = MultiversePassport("سامین")
+
+print(f"📘 گذرنامه برای {samin_passport.holder} صادر شد")
+print(f"📅 اعتبار: از {samin_passport.issued_date} تا {samin_passport.expiry_date}")
+print()
+
+# درخواست ویزا برای جهان‌های مختلف
+universes_to_visit = ["جهان رنگ‌ها", "جهان سکوت", "جهان سامین"]
+
+for universe in universes_to_visit:
+    print("-" * 40)
+    approved = samin_passport.apply_for_visa(universe)
+    
+    if approved:
+        stamp_page = samin_passport.generate_stamp(universe)
+        print(stamp_page)
+        print()
+
+print("🎉 گذرنامه تو اکنون پر از ماجراجویی است!")
+print("هر زمان خواستی سفر کنی، فقط چشم‌هایت را ببند و بخواه...")
