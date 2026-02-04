@@ -1,0 +1,59 @@
+<!-- index.html - صفحه اصلی -->
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>دنیای سامین - داستان‌های کیهانی</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/starfx-css@1.0.0/starfx.min.css">
+    <style>
+        .cosmic-bg {
+            background: radial-gradient(circle at center, #0c0032 0%, #190061 50%, #240090 100%);
+            color: #e0e0ff;
+            min-height: 100vh;
+        }
+        .story-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #4cc9f0;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px;
+            transition: all 0.3s;
+        }
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px #4cc9f0;
+        }
+        .star {
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700;
+        }
+    </style>
+</head>
+<body class="cosmic-bg">
+    <div class="container">
+        <h1 class="star text-center">⭐ دنیای کیهانی سامین ⭐</h1>
+        <div id="chapters-container"></div>
+    </div>
+    
+    <script>
+        // بارگذاری فصل‌ها
+        const chapters = [
+            {id: 62, title: "گذرنامه به جهان‌های موازی", content: "..."},
+            {id: 63, title: "اداره پست کیهانی", content: "..."},
+            // ... بقیه فصل‌ها
+        ];
+        
+        // نمایش فصل‌ها
+        chapters.forEach(chapter => {
+            const card = document.createElement('div');
+            card.className = 'story-card';
+            card.innerHTML = `
+                <h3>فصل ${chapter.id}: ${chapter.title}</h3>
+                <p>${chapter.content.substring(0, 100)}...</p>
+                <button onclick="readChapter(${chapter.id})">خواندن ادامه</button>
+            `;
+            document.getElementById('chapters-container').appendChild(card);
+        });
+    </script>
+</body>
+</html>
