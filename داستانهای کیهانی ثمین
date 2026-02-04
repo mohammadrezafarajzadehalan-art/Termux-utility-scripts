@@ -1,0 +1,5 @@
+git init samin-cosmic-stories
+cd samin-cosmic-stories
+echo "# داستان‌های کیهانی سامین" > README.md
+mkdir chapters
+# هر فصل را در فایلی جداگانه ذخیره کن
