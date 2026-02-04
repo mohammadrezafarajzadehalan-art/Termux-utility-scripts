@@ -1,0 +1,317 @@
+# time_birds_nest.py
+import random
+import time
+from datetime import datetime, timedelta
+
+class TemporalAviary:
+    """آشیانه پرندگان زمان که در گذشته و آینده پرواز می‌کنند"""
+    
+    def __init__(self):
+        self.nest_name = "آشیانه پرندگان زمان"
+        self.keeper = "نگهبان چرخه‌ها"
+        self.location = "لبه حال، مشرف به گذشته و آینده"
+        
+        self.time_birds = {
+            "پرنده خاطره": {
+                "description": "پرنده‌ای که خاطرات را جمع‌آوری می‌کند",
+                "color": "طلایی محو",
+                "song": "صدای زمزمه خاطرات قدیمی",
+                "habitat": "گذشته‌های شیرین"
+            },
+            "پرنده رویا": {
+                "description": "پرنده‌ای که تخم رویا می‌گذارد",
+                "color": "نقره‌ای درخشان",
+                "song": "ملودی آینده‌های ممکن",
+                "habitat": "آینده‌های دست‌نیافته"
+            },
+            "پرنده لحظه": {
+                "description": "پرنده‌ای که در زمان حال زندگی می‌کند",
+                "color": "سبز زنده",
+                "song": "آواز اکنون",
+                "habitat": "لحظه حال"
+            },
+            "پرنده چرخه": {
+                "description": "پرنده‌ای که الگوهای زمان را می‌بیند",
+                "color": "آبی عمیق",
+                "song": "ترانه تکرارها",
+                "habitat": "چرخه‌های طبیعی"
+            }
+        }
+    
+    def enter_aviary(self, visitor):
+        """ورود به آشیانه"""
+        print(f"\n🕊️ به {self.nest_name} خوش آمدی، {visitor}!")
+        print(f"👁️‍🗨️ نگهبان: {self.keeper}")
+        print(f"📍 مکان: {self.location}")
+        
+        welcome = """
+        در این آشیانه، پرندگان زمان زندگی می‌کنند.
+        هر کدام رابطه خاصی با زمان دارند.
+        
+        می‌توانی:
+        • با آنها صحبت کنی
+        • از آنها سؤال بپرسی
+        • همراهشان پرواز کنی
+        • تخم زمانشان را ببینی
+        
+        اما مراقب باش: زمان پرنده‌ها منطق ما را ندارد...
+        """
+        print(welcome)
+    
+    def meet_time_bird(self, bird_name):
+        """ملاقات با یک پرنده زمان"""
+        print(f"\n🦢 در حال ملاقات با {bird_name}...")
+        time.sleep(1)
+        
+        if bird_name in self.time_birds:
+            bird = self.time_birds[bird_name]
+            
+            print(f"\n✨ {bird_name}:")
+            print(f"   📝 {bird['description']}")
+            print(f"   🎨 رنگ: {bird['color']}")
+            print(f"   🎵 آواز: {bird['song']}")
+            print(f"   🏡 زیستگاه: {bird['habitat']}")
+            
+            # مکالمه با پرنده
+            print(f"\n💬 {bird_name} می‌گوید:")
+            bird_messages = {
+                "پرنده خاطره": [
+                    "گذشته هرگز واقعاً نمی‌رود...",
+                    "خاطرات مثل برگ‌های پاییزی هستند، زیبا اما شکننده.",
+                    "گاهی باید به عقب نگاه کرد تا مسیر جلو را دید."
+                ],
+                "پرنده رویا": [
+                    "آینده هنوز نوشته نشده است...",
+                    "رویاها نقشه گنج آینده‌اند.",
+                    "هر تخم رویا، جهانی ممکن است."
+                ],
+                "پرنده لحظه": [
+                    "فقط همین نفس... همین ضربان قلب...",
+                    "حال، تنها زمانی است که واقعاً داری.",
+                    "در لحظه زندگی کن، اما اسیرش نشو."
+                ],
+                "پرنده چرخه": [
+                    "همه چیز برمی‌گردد، اما همیشه متفاوت.",
+                    "چرخه‌ها درس تکرار می‌دهند تا یاد بگیریم.",
+                    "هیچ چیز خطی نیست، همه چیز دورانی است."
+                ]
+            }
+            
+            message = random.choice(bird_messages[bird_name])
+            print(f"   '{message}'")
+            
+            # سؤال از پرنده
+            print(f"\n❓ از {bird_name} چه می‌پرسی؟")
+            question = input("سؤال تو: ")
+            
+            print(f"\n💭 {bird_name} در حال فکر کردن...")
+            time.sleep(2)
+            
+            # پاسخ پرنده
+            answers = [
+                "پاسخ در پرواز من نهفته است...",
+                "شاید بهتر باشد از پرنده دیگری بپرسی...",
+                "زمان پاسخ را خواهد داد...",
+                "این راز را باید خودت کشف کنی...",
+                "سؤال تو جوابش را در خودش دارد..."
+            ]
+            
+            answer = random.choice(answers)
+            print(f"📢 پاسخ: '{answer}'")
+            
+            return bird
+        else:
+            print(f"❌ پرنده '{bird_name}' در آشیانه نیست.")
+            print("پرندگان موجود:", ", ".join(self.time_birds.keys()))
+            return None
+    
+    def collect_time_feather(self, bird_name):
+        """جمع‌آوری پر زمان از یک پرنده"""
+        print(f"\n🪶 درخواست پر از {bird_name}...")
+        
+        if bird_name in self.time_birds:
+            print(f"{bird_name} کمی از خودش را به تو می‌بخشد...")
+            time.sleep(2)
+            
+            feather_types = {
+                "پرنده خاطره": "پر خاطره‌نگار",
+                "پرنده رویا": "پر رویاباف",
+                "پرنده لحظه": "پر اکنون‌نگر",
+                "پرنده چرخه": "پر چرخه‌بین"
+            }
+            
+            feather = feather_types[bird_name]
+            
+            # خواص پر
+            properties = [
+                "سبکی بی‌وزن",
+                "درخشش زمانی",
+                "حافظه پرنده",
+                "قدرت پرواز در زمان"
+            ]
+            
+            print(f"\n✅ {bird_name} یک پر به تو داد!")
+            print(f"   نوع: {feather}")
+            print(f"   خواص: {', '.join(random.sample(properties, 2))}")
+            
+            # هشدار
+            print(f"\n⚠️ هشدار نگهبان:")
+            print("   پر زمان را با مسئولیت استفاده کن.")
+            print("   هر پر فقط یک بار کار می‌کند.")
+            print("   اثرش موقت است (۲۴ ساعت).")
+            
+            return feather
+        else:
+            print("❌ این پرنده پر نمی‌دهد یا وجود ندارد.")
+            return None
+    
+    def time_flight(self, bird_name, destination_time):
+        """پرواز با پرنده زمان به مقصدی در زمان"""
+        print(f"\n✈️ آماده‌سازی پرواز با {bird_name}")
+        print(f"🎯 مقصد: {destination_time}")
+        
+        print("\n🛫 در حال پرواز...")
+        for i in range(3):
+            print(f"   {'>' * (i+1)}{' ' * (2-i)} پرواز در زمان...")
+            time.sleep(1)
+        
+        # شبیه‌سازی پرواز
+        print(f"\n🏁 رسیدی به {destination_time}!")
+        
+        # توصیف مقصد
+        destinations = {
+            "گذشته": "همه چیز کمی محوتر است، صداها دورتر...",
+            "آینده": "نور متفاوتی دارد، بوی تازه‌ای می‌آید...",
+            "حال گسترش‌یافته": "همه چیز واضح‌تر است، زمان کندتر می‌گذرد...",
+            "لحظه‌ای دیگر": "تقریباً شبیه همینجاست، اما کمی متفاوت..."
+        }
+        
+        if destination_time in destinations:
+            print(f"📝 توصیف: {destinations[destination_time]}")
+        
+        # محدودیت‌ها
+        print("\n⏱️ محدودیت‌های پرواز:")
+        print("   • فقط مشاهده، نه دخالت")
+        print("   • حداکثر ۵ دقیقه اقامت")
+        print("   • بدون بردن یادگاری")
+        print("   • بدون تغییر گذشته/آینده")
+        
+        return True
+    
+    def lay_time_egg(self, bird_name):
+        """تخم گذاری پرنده زمان"""
+        print(f"\n🥚 {bird_name} در حال تخم گذاری...")
+        time.sleep(2)
+        
+        egg_types = {
+            "پرنده خاطره": "تخم خاطره محفوظ",
+            "پرنده رویا": "تخم رویای ناشکفته",
+            "پرنده لحظه": "تخم لحظه ماندگار",
+            "پرنده چرخه": "تخم الگوی تکراری"
+        }
+        
+        if bird_name in egg_types:
+            egg = egg_types[bird_name]
+            
+            print(f"\n✅ {bird_name} یک تخم گذاشت!")
+            print(f"   نوع: {egg}")
+            
+            # زمان جوجه‌کشی
+            hatch_time = random.randint(1, 100)
+            print(f"   ⏳ زمان جوجه‌کشی: {hatch_time} روز زمانی")
+            
+            # محتویات تخم
+            print(f"\n📦 محتویات احتمالی:")
+            contents = [
+                "یک خاطره گمشده",
+                "یک رویای محقق نشده",
+                "یک لحظه ناب",
+                "یک الگوی پنهان",
+                "یک درس زمان",
+                "یک راز زمانی"
+            ]
+            
+            for content in random.sample(contents, 3):
+                print(f"   • {content}")
+            
+            # دستورالعمل مراقبت
+            print(f"\n📋 دستورالعمل مراقبت:")
+            print("   • در گرمای قلب نگه دار")
+            print("   • با امید آب‌دهی کن")
+            print("   • با صبر منتظر باش")
+            print("   • با عشق به جوجه تبدیل کن")
+            
+            return egg
+        else:
+            print("❌ این پرنده تخم نمی‌گذارد.")
+            return None
+
+# بازدید از آشیانه
+print("🕊️ در حال پرواز به سمت آشیانه زمان‌پرندگان...")
+time.sleep(1)
+
+aviary = TemporalAviary()
+aviary.enter_aviary("سامین")
+
+while True:
+    print("\n" + "="*50)
+    print("🕊️ منوی آشیانه زمان‌پرندگان")
+    print("۱) ملاقات با پرنده زمان")
+    print("۲) جمع‌آوری پر زمان")
+    print("۳) پرواز در زمان")
+    print("۴) مشاهده تخم‌گذاری")
+    print("۵) خروج")
+    
+    choice = input("\nانتخاب کن [۱-۵]: ")
+    
+    if choice == "1":
+        print("\n🦢 پرندگان موجود:")
+        for bird in aviary.time_birds.keys():
+            print(f"  • {bird}")
+        
+        bird_choice = input("\nکدام پرنده را می‌خواهی ملاقات کنی؟ ")
+        aviary.meet_time_bird(bird_choice)
+        
+    elif choice == "2":
+        print("\n🪶 کدام پرنده می‌تواند پر بدهد؟")
+        for bird in ["پرنده خاطره", "پرنده رویا", "پرنده لحظه", "پرنده چرخه"]:
+            print(f"  • {bird}")
+        
+        bird_choice = input("\nاز کدام پرنده می‌خواهی پر بگیری؟ ")
+        feather = aviary.collect_time_feather(bird_choice)
+        
+        if feather:
+            print(f"\n🎁 اکنون پر {feather} را داری!")
+            print("می‌توانی از آن برای پرواز کوتاه در زمان استفاده کنی...")
+        
+    elif choice == "3":
+        print("\n✈️ مقاصد پرواز:")
+        destinations = ["گذشته", "آینده", "حال گسترش‌یافته", "لحظه‌ای دیگر"]
+        for dest in destinations:
+            print(f"  • {dest}")
+        
+        bird_choice = input("\nبا کدام پرنده می‌خواهی پرواز کنی؟ ")
+        dest_choice = input("به کجا می‌خواهی بروی؟ ")
+        
+        aviary.time_flight(bird_choice, dest_choice)
+        
+    elif choice == "4":
+        print("\n🥚 کدام پرنده تخم می‌گذارد؟")
+        for bird in ["پرنده خاطره", "پرنده رویا", "پرنده لحظه", "پرنده چرخه"]:
+            print(f"  • {bird}")
+        
+        bird_choice = input("\nکدام پرنده را می‌خواهی ببینی؟ ")
+        egg = aviary.lay_time_egg(bird_choice)
+        
+    elif choice == "5":
+        print("\n🕊️ آشیانه همیشه پذیرای توست...")
+        print("به یاد داشته باش:")
+        print("زمان مثل پرنده‌ای است که می‌توانی")
+        print("آن را ببینی، اما نگه‌ش نداری.")
+        print("می‌توانی با آن پرواز کنی،")
+        print("اما نمی‌توانی جهتش را عوض کنی.")
+        print("\nپروازی آرام در رودخانه زمان داشته باشی! 🌊")
+        break
+        
+    else:
+        print("❌ این انتخاب در زمان حال موجود نیست!")
