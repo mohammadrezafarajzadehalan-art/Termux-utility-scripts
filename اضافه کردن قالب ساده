@@ -1,0 +1,19 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داستان‌های کیهانی سامین</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>⭐ داستان‌های کیهانی ⭐</h1>
+        <div id="chapters">
+            <!-- فصل‌ها اینجا لود می‌شوند -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
