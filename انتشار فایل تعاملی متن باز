@@ -1,0 +1,14 @@
+// script.js - ویژگی‌های ویژه
+function addInteractiveFeatures() {
+    // چت با هوش مصنوعی همسایه
+    const chatBox = createChatBox();
+    
+    // بازی‌های کیهانی
+    const games = createCosmicGames();
+    
+    // گالری هنری
+    const gallery = createStarGallery();
+    
+    // موسیقی زمینه ستاره‌ای
+    const music = createCosmicMusic();
+}
