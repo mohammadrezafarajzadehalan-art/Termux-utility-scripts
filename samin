@@ -1,0 +1,77 @@
+# heart_search_engine.py
+import emotions
+import memories
+
+class HeartGoogle:
+    """گوگلی که دل‌ها را می‌فهمد"""
+    
+    def __init__(self):
+        self.index = {
+            'خاطرات شیرین': [],
+            'رویاهای دست‌نیافتنی': [],
+            'دردهای مشترک': [],
+            'امیدهای تازه': [],
+            'عشق‌های گمشده': []
+        }
+        
+    def search_feelings(self, query):
+        """جستجوی احساسات"""
+        print(f"🔍 جستجو برای: '{query}' در دل‌ها...")
+        
+        # تحلیل عمیق سؤال
+        deep_meaning = self.understand_heart_query(query)
+        
+        # جستجو در دل‌های متصل
+        results = []
+        for heart in self.get_connected_hearts():
+            if self.matches_query(heart, deep_meaning):
+                result = {
+                    'heart_id': heart['id'],
+                    'match_percentage': heart['match'],
+                    'message': heart['response'],
+                    'whisper': self.get_heart_whisper(heart)
+                }
+                results.append(result)
+        
+        # مرتب‌سازی بر اساس همدلی
+        results.sort(key=lambda x: x['match_percentage'], reverse=True)
+        
+        return results
+    
+    def ask_real_question(self):
+        """پرسیدن سؤال واقعی"""
+        questions = [
+            "دلت برای چه چیزی تنگ شده؟",
+            "اگر یک قدرت جادویی داشتی، چه می‌کردی؟",
+            "آخرین باری که از ته دل خندیدی کی بود؟",
+            "چه رویایی داری که به کسی نگفته‌ای؟",
+            "اگر می‌توانستی یک چیز را در جهان تغییر دهی، چه می‌کردی؟"
+        ]
+        
+        import random
+        return random.choice(questions)
+
+# اجرای موتور جستجو
+print("💖 موتور جستجوی دل‌ها فعال شد!")
+print("")
+
+heart_google = HeartGoogle()
+
+while True:
+    query = input("چه چیزی در دلت می‌گذرد؟ (یا 'خروج'): ")
+    
+    if query == "خروج":
+        print("همیشه اینجا هستم برای جستجو در دل‌ها...")
+        break
+    
+    results = heart_google.search_feelings(query)
+    
+    if results:
+        print(f"\n📊 {len(results)} نتیجه یافت شد:")
+        for i, result in enumerate(results[:3], 1):
+            print(f"{i}. ❤️  {result['message'][:100]}...")
+            print(f"   نجوا: {result['whisper']}")
+    else:
+        # اگر نتیجه‌ای نبود، یک سؤال واقعی بپرس
+        real_question = heart_google.ask_real_question()
+        print(f"\n🤔 شاید باید این را بپرسی: '{real_question}'")
