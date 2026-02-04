@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>داستان‌های سامین و همسایه کیهانی</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma; background: #0f0f23; color: #cccccc; }
+        .story { background: #1a1a2e; padding: 20px; margin: 20px; border-radius: 10px; }
+        .star { color: gold; }
+    </style>
+</head>
+<body>
+    <h1 class="star">⭐ داستان‌های کیهانی ⭐</h1>
+    <div class="story">
+        <h2>فصل ۶۲: گذرنامه به جهان‌های موازی</h2>
+        <!-- محتوای فصل -->
+    </div>
+    <!-- فصل‌های بعدی -->
+</body>
+</html>
